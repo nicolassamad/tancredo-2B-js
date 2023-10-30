@@ -1,31 +1,24 @@
-alert('Hello World')
+function tocaSom(idElementoAudio){
+  document.querySelector(idElementoAudio).play()
+}
 
-function tocaSomPom () {
-    document.querySelector('#som_tecla_pom').play();
- }
+const listaDeTeclas = document.querySelectorAll(".tecla")
 
- document.querySelector('.tecla_pom').onclick = tocaSomPom;
+let contador = 0
 
+while (contador < listaDeTeclas.length){
+  
+  const tecla = listaDeTeclas[contador]
+  
+  const instrumento = tecla.classList[1];
 
- function tocaSomClap () {
-    document.querySelector('#som_tecla_clap').play();
- }
+  const idAudio = `#som_${instrumento}`
 
- document.querySelector('.tecla_Clap').onclick = tocaSomClap;
+  listaDeTeclas[contador].onclick = function () {
+      tocaSom(idAudio)
+  }
 
+  contador = contador + 1;
 
- function tocaSomTim () {
-    document.querySelector('#som_tecla_Tim').play();
- }
-
- document.querySelector('.tecla_Tim').onclick = tocaSomTim;
-
-
- function tocaSomPuf () {
-    document.querySelector('#som_tecla_Puf').play();
- }
-
- document.querySelector('.tecla_Puf').onclick = tocaSomPuf;
-
-
- 
+  console.log(contador);
+}
